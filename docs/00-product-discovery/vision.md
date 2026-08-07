@@ -1,21 +1,36 @@
 # Vision
 
+## Project
+
+Smart Expense Tracker
+
+---
+
 ## Mission
 
-Help users make better financial decisions by connecting today's spending with tomorrow's goals.
+Help people make better financial decisions by increasing awareness of their spending and connecting today's financial choices with tomorrow's goals.
 
-## Core Emotion
+The application should not only record expenses but also help users understand the long-term impact of their spending habits and provide realistic guidance toward achieving their financial goals.
 
-Hope.
+---
 
-## Primary Persona
+## Core Problem
 
-H.
+Many people spend money without understanding the long-term consequences of their decisions.
 
-## Onboarding Strategy
+They often ask questions like:
 
-Build a financial profile before giving advice.
+- Where does my salary go?
+- Can I actually afford this purchase?
+- Will this decision delay my financial goals?
+- How much can I realistically save?
 
-## Initial Expense Categories
+Existing expense trackers primarily focus on recording transactions rather than helping users make informed financial decisions.
 
-Predefined + custom.
+---
+
+## Vision
+
+The application should become a trusted financial companion that helps users make smarter spending decisions while giving them confidence that their financial goals are achievable through consistent behavior.
+
+The application should always provide users with a realistic path forward, even when their goals are not immediately achievable.
