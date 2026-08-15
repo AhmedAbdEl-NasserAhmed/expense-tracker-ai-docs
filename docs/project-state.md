@@ -4,13 +4,13 @@
 Requirements
 
 ## Status
-✅ Requirements discovery complete
+⚠️ Requirements review complete — conditional pass
 
 ## Current Milestone
-Requirements consolidation
+Requirements Review
 
 ## Next Milestone
-Requirements review and gate
+Domain Modeling
 
 ## Completed Deliverables
 - Product Vision
@@ -29,6 +29,7 @@ Requirements review and gate
 - User Stories
 - Acceptance Criteria
 - MVP Requirements
+- Requirements Review
 
 ## Key Current Decisions
 - AI is completely postponed from MVP.
@@ -40,13 +41,16 @@ Requirements review and gate
 - Goals are separate from onboarding.
 - The first three months are primarily an observation period.
 
-## Open Questions
+## Open Questions Before Database Design
 - Exact treatment of partial-month recurring commitments.
 - Exact effective-date rules when income/commitments change inside a month.
 - Exact credit-card statement and payment model.
+- Exact definition and separation of fixed commitments versus recurring expenses.
+- Exact representation of current-month starting state during mid-month onboarding.
+- Exact daily spending guidance calculation.
 - Detailed security, retention, and deletion implementation.
 - Exact statistics and visualization definitions.
 - Exact goal model and calculations.
 
 ## Next Action
-Review the requirements as a coherent set before moving to domain modeling and architecture.
+Begin Domain Modeling. Resolve the open financial-domain rules before designing database tables.
