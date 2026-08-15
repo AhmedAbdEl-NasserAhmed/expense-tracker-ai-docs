@@ -4,9 +4,9 @@
 
 Financial goals are not required during onboarding. Users can create goals separately when they choose.
 
-## Decision #002 — Personalized guidance requires history
+## Decision #002 — Personalized guidance requires three months of history
 
-The application should first observe actual financial behavior before providing personalized guidance. The first three months are primarily an observation period.
+The application should first observe actual financial behavior before providing personalized financial-behavior guidance. The first three months are primarily an observation period. AI-powered recommendations remain outside the MVP.
 
 ## Decision #003 — Expense categories are predefined with custom additions
 
