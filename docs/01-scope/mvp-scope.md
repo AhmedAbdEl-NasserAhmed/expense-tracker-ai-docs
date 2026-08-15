@@ -6,7 +6,7 @@ Define the smallest version of the Smart Expense Tracker that delivers its core 
 
 ## MVP Goal
 
-The MVP should establish a reliable financial foundation before introducing AI or advanced financial decision support.
+The MVP establishes a reliable financial foundation before introducing AI or advanced financial decision support.
 
 The core loop is:
 
@@ -19,28 +19,37 @@ The core loop is:
 
 ## In Scope
 
-### 1. Financial Profile
+### Authentication
+
+- Email/password authentication.
+- Google authentication.
+- Email-based password reset.
+- Permanent account deletion after explicit confirmation.
+
+### Financial Profile
 
 The user can provide and update:
 
+- One currency.
 - Monthly income.
 - Multiple income streams.
+- One-time income for a specific month/date.
 - Current savings.
 - Marital status.
 - Fixed financial commitments.
 - Recurring expenses.
-- Current available money when onboarding occurs partway through a month.
+- Current available spending capacity when onboarding occurs partway through a month.
 - Remaining commitments for the current month.
 
-Profile changes must preserve their effective date so historical analysis is not rewritten.
+Profile changes apply from an effective date and do not rewrite historical financial data.
 
-### 2. Expense Categories
+### Expense Categories
 
-- Provide predefined common expense categories.
-- Allow users to create custom categories.
-- Make selected categories available during expense entry.
+- Predefined common expense categories.
+- Custom categories.
+- Categories selected during onboarding are available during expense entry.
 
-### 3. Expense Tracking
+### Expense Tracking
 
 Users can quickly record an expense using:
 
@@ -52,18 +61,15 @@ Users can quickly record an expense using:
 Users can:
 
 - Record expenses for previous dates.
-- Edit the amount.
-- Edit the category.
-- Edit the payment method.
-- Edit the transaction date.
+- Edit amount, category, payment method, and transaction date.
 - Delete expenses.
 - Add multiple expenses in one session for efficient catch-up.
 
-### 4. Recurring Expenses
+### Recurring Expenses
 
-Users can optionally define a recurring expense.
+Users can define recurring expenses during onboarding or later.
 
-A recurring expense includes enough information to determine its recurrence, including:
+A recurring expense includes:
 
 - Amount.
 - Category.
@@ -71,76 +77,95 @@ A recurring expense includes enough information to determine its recurrence, inc
 - Start date.
 - End date or another explicit end condition when applicable.
 
-Recurring expenses are not assumed automatically. The user explicitly chooses to create a recurring rule.
+Recurring rules are explicit and can be changed or ended at any time. Changes affect future calculations only.
 
-Known recurring expenses can also be entered during onboarding.
-
-### 5. Payment Methods and Credit Card Liability
+### Payment Methods and Credit Card Liability
 
 Payment method is required for an expense.
 
-For MVP, payment methods distinguish money already owned from credit-card liability.
+For MVP, the system distinguishes owned-money payment methods such as cash/debit from credit-card spending.
 
-Credit-card spending increases the user's liability. Paying the credit-card bill later must not create a second expense for the same purchase.
+Credit-card spending increases liability. Paying the credit-card bill later settles the liability and does not create a second expense for the original purchase.
 
 Full bank-account management is outside MVP scope.
 
-### 6. Monthly Spending Position
+### Monthly Spending Position
 
-The application continuously calculates the user's spending position for the current month.
+The application continuously calculates the user's current-month spending position.
 
-The user should be able to understand:
+It shows:
 
 - Available spending capacity.
 - Amount spent so far.
 - Remaining spending capacity.
-- Amount by which spending has exceeded the available capacity, when applicable.
+- Amount by which spending exceeds capacity when applicable.
+- Daily spending guidance based on remaining capacity and remaining days.
 
-The application does not block spending when the user exceeds their available spending capacity.
+Spending capacity is guidance, not a hard limit. The application never blocks spending because the user exceeded capacity.
 
-### 7. Overspending Handling
+Available spending capacity accounts for applicable income, fixed commitments, and remaining recurring commitments.
+
+### Overspending Handling
 
 Overspending does not automatically become debt.
 
-If the user exceeds their available spending capacity, the application records the overspending and asks how the difference was funded when that information is needed.
+When the difference needs clarification, the application asks how the user funded it. Options include debt/credit card, borrowed money, savings, other income, and other.
 
-Possible funding sources include:
+If savings were used, the application asks the user to confirm the amount before changing recorded savings.
 
-- Credit card / debt.
-- Borrowed money.
-- Existing savings.
-- Other income.
-- Other.
+### Spending History and Statistics
 
-If the user states that savings were used, the application must ask the user to confirm the amount before changing the recorded savings balance.
+The application provides:
 
-### 8. Spending History and Statistics
+- Detailed expense history.
+- Month, category, and payment-method filters.
+- Expense search.
+- Expense editing and deletion.
+- A dedicated monthly overview for each month.
+- Basic category and monthly statistics.
 
-The application builds spending history from actual recorded expenses.
+### Missing Days
 
-It should provide basic statistics and monthly summaries, including the user's total spending and whether the month ended within or above the available spending capacity.
+A day with no recorded expense is not automatically considered a zero-spending day.
 
-The first three months are primarily an observation period. The application should not automatically interpret unused money as intentional savings during this period.
+A day can be:
 
-### 9. Goals
+- Spending recorded.
+- Confirmed no spending.
+- Unknown/untracked.
 
-Goals are a separate feature and are not required during onboarding.
+Users can catch up on missing days later and may leave a day unknown.
 
-Users can create goals when they choose.
+### Dashboard
 
-Personalized goal guidance should only be introduced after sufficient financial history has been collected.
+The main screen focuses on the current month and provides:
 
-### 10. Daily Tracking Reminder
+- Current available spending capacity.
+- Amount spent.
+- Remaining capacity.
+- Daily spending guidance.
+- Category consumption.
+- Overspending when applicable.
+- Recent expenses.
+- Quick add-expense action.
 
-If no expense has been recorded for a day, the application may send one reminder near the end of the day asking whether the user spent anything.
+### Goals
 
-The user can either record expenses or explicitly indicate that they had no spending that day.
+Goals are separate from onboarding and can be created when the user chooses.
 
-The MVP should not send repeated reminders for the same missed day.
+The application does not require a goal during onboarding. Personalized goal guidance requires sufficient financial history.
+
+### Observation Period
+
+The first three months are primarily an observation period.
+
+The application does not automatically interpret unused capacity as savings during this period.
+
+### Notifications
+
+The MVP supports one daily expense-tracking reminder near the end of the day when no expense has been recorded. The user can record expenses or confirm no spending.
 
 ## Out of Scope
-
-The following are intentionally excluded from MVP:
 
 - AI-powered recommendations.
 - AI financial chatbot.
@@ -154,10 +179,13 @@ The following are intentionally excluded from MVP:
 - Family accounts.
 - Subscription detection.
 - Advanced forecasting.
+- Financial health score.
 - Automatic allocation of unused money to goals or savings.
+- Multi-currency support.
+- Proactive AI financial notifications.
 
 ## MVP Product Principle
 
-The MVP should prioritize accurate financial tracking and a low-friction experience over advanced intelligence.
+The MVP prioritizes accurate financial tracking and a low-friction experience over advanced intelligence.
 
 AI and advanced recommendations will be built only after the application has established a trustworthy financial data foundation.
